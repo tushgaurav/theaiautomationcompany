@@ -8,13 +8,11 @@ import Quote from './components/Quote'
 import CTA from './components/CTA'
 import CapabilitiesGrid from './components/CapabilitiesGrid'
 import Footer from './components/Footer'
-import Cursor from './components/Cursor'
 
 export default function App() {
   return (
     <LazyMotion features={domAnimation}>
       <div className="bg-[#FDFBF7] text-neutral-900 min-h-screen overflow-x-hidden selection:bg-[#B91C1C] selection:text-white antialiased">
-        <Cursor />
         <Navbar />
         <Masthead />
         <Hero />
