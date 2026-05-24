@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
+const ArrowIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 20 20" fill="none" className="shrink-0">
+    <path d="M6 14L14 6M14 6H7M14 6V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
 const featured = [
   {
     num: '01',
@@ -87,14 +93,19 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Remaining services — compact 3-col grid */}
-      <section className="px-6 lg:px-10 py-20 md:py-28">
+      {/* Remaining services — compact 3-col grid with cards */}
+      <section className="px-6 lg:px-10 py-20 md:py-28 section-alt">
         <div className="max-w-6xl mx-auto">
           <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-10">Also</span>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {remaining.map((service) => (
-              <div key={service.title}>
-                <h3 className="font-serif text-lg font-bold tracking-tight mb-3">{service.title}</h3>
+              <div key={service.title} className="bg-white rounded-2xl p-7 card-lift border border-neutral-200/60 group">
+                <div className="flex items-start justify-between mb-4">
+                  <h3 className="font-serif text-lg font-bold tracking-tight">{service.title}</h3>
+                  <span className="text-neutral-300 group-hover:text-[#B91C1C] transition-colors duration-300 mt-0.5">
+                    <ArrowIcon />
+                  </span>
+                </div>
                 <ul className="space-y-1.5">
                   {service.items.map((item) => (
                     <li key={item} className="text-sm text-neutral-500 leading-relaxed">{item}</li>
@@ -109,60 +120,65 @@ export default function Services() {
       {/* n8n — terminal style */}
       <section className="bg-[#111] text-[#FDFBF7] px-6 lg:px-10 py-20 md:py-28 font-mono">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-2 mb-10">
-            <span className="w-3 h-3 rounded-full bg-red-500/70" />
-            <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-            <span className="w-3 h-3 rounded-full bg-green-500/70" />
-            <span className="text-xs text-neutral-500 ml-3">n8n-workflows.sh</span>
-          </div>
-          <div className="space-y-8">
-            {workflows.map((wf) => (
-              <div key={wf.trigger}>
-                <span className="text-[#E53E3E] text-sm">$</span>
-                <span className="text-neutral-400 text-sm ml-2">{wf.trigger}</span>
-                <div className="mt-2 flex flex-wrap items-center gap-2">
-                  {wf.steps.map((step, j) => (
-                    <span key={step} className="flex items-center gap-2">
-                      {j > 0 && <span className="text-neutral-600">&rarr;</span>}
-                      <span className="text-sm text-neutral-300 border border-neutral-700 px-3 py-1">{step}</span>
-                    </span>
-                  ))}
+          <div className="bg-neutral-900/50 rounded-2xl p-8 md:p-12 border border-white/[0.06]">
+            <div className="flex items-center gap-2 mb-10">
+              <span className="w-3 h-3 rounded-full bg-red-500/70" />
+              <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
+              <span className="w-3 h-3 rounded-full bg-green-500/70" />
+              <span className="text-xs text-neutral-500 ml-3">n8n-workflows.sh</span>
+            </div>
+            <div className="space-y-8">
+              {workflows.map((wf) => (
+                <div key={wf.trigger}>
+                  <span className="text-[#E53E3E] text-sm">$</span>
+                  <span className="text-neutral-400 text-sm ml-2">{wf.trigger}</span>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    {wf.steps.map((step, j) => (
+                      <span key={step} className="flex items-center gap-2">
+                        {j > 0 && <span className="text-neutral-600">&rarr;</span>}
+                        <span className="text-sm text-neutral-300 border border-neutral-700 rounded-lg px-3 py-1">{step}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Before / After — AI Agent */}
-      <section className="px-6 lg:px-10 py-20 md:py-28 border-b border-neutral-900/10">
+      <section className="px-6 lg:px-10 py-20 md:py-28">
         <div className="max-w-6xl mx-auto">
           <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-8">AI Agent Example</span>
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">Prospect research, before and after</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <motion.div
-              className="p-10 md:p-14 bg-neutral-100 border border-neutral-200"
+              className="p-10 md:p-14 bg-neutral-100 rounded-2xl"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-4">Before</span>
-              <p className="font-serif text-6xl md:text-7xl font-bold tracking-tight text-neutral-400">2h</p>
+              <p className="font-serif text-6xl md:text-7xl font-bold tracking-tight text-neutral-300">2h</p>
               <p className="text-sm text-neutral-500 mt-3 leading-relaxed">
                 Per prospect. Manual search across LinkedIn, company sites, social profiles, news. Copy-paste into a doc.
               </p>
             </motion.div>
             <motion.div
-              className="p-10 md:p-14 bg-neutral-900 text-[#FDFBF7] border border-neutral-800"
+              className="p-10 md:p-14 bg-gradient-to-br from-neutral-800 to-neutral-900 text-[#FDFBF7] rounded-2xl relative overflow-hidden"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#E53E3E] block mb-4">After</span>
-              <p className="font-serif text-6xl md:text-7xl font-bold tracking-tight">5m</p>
-              <p className="text-sm text-neutral-400 mt-3 leading-relaxed">
-                Agent finds website, news, socials, company size, tech stack. Writes a ready-to-use summary automatically.
-              </p>
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#B91C1C]/[0.08] rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative z-10">
+                <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#E53E3E] block mb-4">After</span>
+                <p className="font-serif text-6xl md:text-7xl font-bold tracking-tight">5m</p>
+                <p className="text-sm text-neutral-400 mt-3 leading-relaxed">
+                  Agent finds website, news, socials, company size, tech stack. Writes a ready-to-use summary automatically.
+                </p>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -177,7 +193,7 @@ export default function Services() {
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300 shrink-0"
+            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B] shrink-0"
           >
             Let's Talk
           </Link>

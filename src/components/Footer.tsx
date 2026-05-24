@@ -2,51 +2,51 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
   return (
-    <footer className="px-6 lg:px-10 py-12 md:py-16 border-t border-neutral-900/10">
-        <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 mb-12">
-          <div className="md:col-span-1">
-            <Link to="/" className="font-serif font-bold text-lg block mb-3">
+    <footer className="bg-neutral-900 text-[#FDFBF7] px-6 lg:px-10 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+          <div className="md:col-span-4">
+            <Link to="/" className="font-serif font-bold text-2xl block mb-4">
               The AI Automation Co.
             </Link>
-            <p className="text-sm text-neutral-500 leading-relaxed">
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-xs">
               We automate the boring stuff so your team can focus on what matters.
             </p>
           </div>
-          <div>
-            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-4">
+          <div className="md:col-span-2 md:col-start-6">
+            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-5">
               Company
             </span>
-            <div className="flex flex-col gap-2.5">
-              <Link to="/about" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">About</Link>
-              <Link to="/customers" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Customers</Link>
-              <Link to="/contact" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Contact</Link>
+            <div className="flex flex-col gap-3">
+              <Link to="/about" className="text-sm text-neutral-400 hover:text-white transition-colors">About</Link>
+              <Link to="/customers" className="text-sm text-neutral-400 hover:text-white transition-colors">Customers</Link>
+              <Link to="/contact" className="text-sm text-neutral-400 hover:text-white transition-colors">Contact</Link>
             </div>
           </div>
-          <div>
-            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-4">
+          <div className="md:col-span-2">
+            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-5">
               Services
             </span>
-            <div className="flex flex-col gap-2.5">
-              <Link to="/services" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">All Services</Link>
-              <Link to="/workshops" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">Workshops</Link>
+            <div className="flex flex-col gap-3">
+              <Link to="/services" className="text-sm text-neutral-400 hover:text-white transition-colors">All Services</Link>
+              <Link to="/workshops" className="text-sm text-neutral-400 hover:text-white transition-colors">Workshops</Link>
             </div>
           </div>
-          <div>
-            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-4">
+          <div className="md:col-span-2">
+            <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-500 block mb-5">
               Get in Touch
             </span>
-            <div className="flex flex-col gap-2.5">
-              <a href="mailto:hello@aiautomation.co" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+            <div className="flex flex-col gap-3">
+              <a href="mailto:hello@aiautomation.co" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 hello@aiautomation.co
               </a>
-              <Link to="/contact" className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors">
+              <Link to="/contact" className="text-sm text-neutral-400 hover:text-white transition-colors">
                 Book a Discovery Call
               </Link>
             </div>
           </div>
         </div>
-        <div className="border-t border-neutral-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] font-mono uppercase tracking-[0.15em] text-neutral-400">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] font-mono uppercase tracking-[0.15em] text-neutral-500">
           <span>&copy; 2026 The AI Automation Company</span>
           <span>All rights reserved</span>
         </div>

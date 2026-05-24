@@ -99,7 +99,7 @@ export default function Customers() {
               What We've Actually Built
             </h1>
           </motion.div>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-5">
             {[
               { value: '8', label: 'companies' },
               { value: '75+', label: 'hours saved weekly' },
@@ -107,6 +107,7 @@ export default function Customers() {
             ].map((stat, i) => (
               <motion.div
                 key={stat.label}
+                className="bg-white rounded-2xl p-6 md:p-8 border border-neutral-200/60"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + i * 0.1 }}
@@ -120,19 +121,22 @@ export default function Customers() {
       </section>
 
       {/* Featured case study */}
-      <section className="px-6 lg:px-10 py-20 md:py-28 border-b border-neutral-900/10">
+      <section className="px-6 lg:px-10 py-20 md:py-28">
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-neutral-900/10"
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 overflow-hidden rounded-2xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <div className="md:col-span-4 p-8 md:p-14 bg-neutral-900 text-[#FDFBF7] flex flex-col justify-center">
-            <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#E53E3E] block mb-3">{featured.industry} &middot; {featured.size}</span>
-            <p className="font-serif text-5xl md:text-7xl font-bold tracking-tight">{featured.metric}</p>
-            <p className="text-sm text-neutral-400 mt-2">{featured.metricLabel}</p>
+          <div className="md:col-span-4 p-8 md:p-14 bg-gradient-to-br from-neutral-800 to-neutral-900 text-[#FDFBF7] flex flex-col justify-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#B91C1C]/[0.08] rounded-full blur-[80px] pointer-events-none" />
+            <div className="relative z-10">
+              <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#E53E3E] block mb-3">{featured.industry} &middot; {featured.size}</span>
+              <p className="font-serif text-5xl md:text-7xl font-bold tracking-tight">{featured.metric}</p>
+              <p className="text-sm text-neutral-400 mt-2">{featured.metricLabel}</p>
+            </div>
           </div>
-          <div className="md:col-span-8 p-8 md:p-14">
+          <div className="md:col-span-8 p-8 md:p-14 bg-white border border-neutral-200/60 md:border-l-0 rounded-r-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
                 <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">Problem</span>
@@ -145,7 +149,7 @@ export default function Customers() {
             </div>
             <div className="flex flex-wrap gap-2">
               {featured.tools.map((tool) => (
-                <span key={tool} className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-neutral-500 border border-neutral-200 px-2.5 py-1">
+                <span key={tool} className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-neutral-500 bg-neutral-100 rounded-full px-3 py-1">
                   {tool}
                 </span>
               ))}
@@ -154,8 +158,8 @@ export default function Customers() {
         </motion.div>
       </section>
 
-      {/* Remaining case studies — alternating layouts */}
-      <section className="px-6 lg:px-10 py-16 md:py-24">
+      {/* Remaining case studies */}
+      <section className="px-6 lg:px-10 py-16 md:py-24 section-alt">
         <div className="max-w-6xl mx-auto space-y-0">
           {rest.map((study, i) => (
             <motion.article
@@ -166,20 +170,17 @@ export default function Customers() {
               viewport={{ once: true }}
             >
               <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 ${i % 2 !== 0 ? 'md:direction-rtl' : ''}`}>
-                {/* Metric side */}
                 <div className={`md:col-span-3 ${i % 2 !== 0 ? 'md:order-2 md:text-right' : ''}`}>
                   <p className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-[#B91C1C]">{study.metric}</p>
                   <p className="text-xs text-neutral-500 mt-1">{study.metricLabel}</p>
                   <div className="flex flex-wrap gap-1.5 mt-4">
                     {study.tools.map((tool) => (
-                      <span key={tool} className="text-[0.55rem] font-mono uppercase tracking-[0.1em] text-neutral-400 bg-neutral-100 px-2 py-0.5">
+                      <span key={tool} className="text-[0.55rem] font-mono uppercase tracking-[0.1em] text-neutral-400 bg-white rounded-full px-2.5 py-0.5">
                         {tool}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                {/* Content side */}
                 <div className={`md:col-span-9 ${i % 2 !== 0 ? 'md:order-1' : ''}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <h3 className="font-serif text-xl font-bold tracking-tight">{study.industry}</h3>
@@ -215,7 +216,7 @@ export default function Customers() {
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300 shrink-0"
+            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B] shrink-0"
           >
             Let's Build Something
           </Link>

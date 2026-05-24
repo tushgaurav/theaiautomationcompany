@@ -128,25 +128,25 @@ export default function Workshops() {
 
       {/* Workshop tickets */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-6">
           {workshops.map((ws, i) => (
             <motion.div
               key={ws.title}
-              className="border border-neutral-900/10 overflow-hidden hover:border-neutral-900/25 transition-colors"
+              className="rounded-2xl border border-neutral-200/60 overflow-hidden card-lift bg-white"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
             >
               {/* Top strip */}
-              <div className="flex items-center justify-between px-6 md:px-10 py-3 bg-neutral-900 text-[#FDFBF7]">
+              <div className="flex items-center justify-between px-6 md:px-10 py-3 bg-neutral-900 text-[#FDFBF7] rounded-t-2xl">
                 <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em]">{ws.duration} &middot; {ws.hours}</span>
                 <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em]">{ws.audience.split(',')[0]}</span>
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-12">
                 {/* Left: details */}
-                <div className="lg:col-span-8 p-6 md:p-10 lg:border-r border-neutral-900/10">
+                <div className="lg:col-span-8 p-6 md:p-10 lg:border-r border-neutral-200/60">
                   <h3 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-6">{ws.title}</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div>
@@ -186,7 +186,7 @@ export default function Workshops() {
 
           {/* Custom workshop */}
           <motion.div
-            className="border border-dashed border-neutral-900/20 p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+            className="rounded-2xl border border-dashed border-neutral-300 p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -244,7 +244,7 @@ export default function Workshops() {
       </section>
 
       {/* FAQ */}
-      <section className="px-6 lg:px-10 py-20 md:py-28">
+      <section className="px-6 lg:px-10 py-20 md:py-28 section-alt">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">Frequently Asked</h2>
           <FAQ />
@@ -260,7 +260,7 @@ export default function Workshops() {
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300 shrink-0"
+            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B] shrink-0"
           >
             Book a Planning Call
           </Link>

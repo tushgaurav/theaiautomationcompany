@@ -67,19 +67,23 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="border-l-2 border-[#B91C1C] pl-8">
-              <p className="font-serif text-2xl md:text-3xl font-bold leading-snug tracking-tight">
-                "Our best outcome is when you don't need us anymore."
-              </p>
-              <p className="text-sm text-neutral-500 mt-4">Our actual philosophy</p>
+            <div className="rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 p-8 md:p-10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-[200px] h-[200px] bg-[#B91C1C]/[0.08] rounded-full blur-[80px] pointer-events-none" />
+              <div className="relative z-10">
+                <div className="w-8 h-[2px] bg-[#E53E3E] mb-6" />
+                <p className="font-serif text-2xl md:text-3xl font-bold leading-snug tracking-tight text-white">
+                  "Our best outcome is when you don't need us anymore."
+                </p>
+                <p className="text-sm text-neutral-500 mt-4">Our actual philosophy</p>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* By the numbers */}
-      <section className="px-6 lg:px-10 border-t border-b border-neutral-900/10">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-900/10">
+      <section className="px-6 lg:px-10 py-16 md:py-24 section-alt">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
           {[
             { value: '50+', label: 'Automations built' },
             { value: '8', label: 'Industries served' },
@@ -88,7 +92,7 @@ export default function About() {
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="p-8 md:p-12 text-center"
+              className="bg-white rounded-2xl p-8 md:p-10 text-center border border-neutral-200/60"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -101,27 +105,25 @@ export default function About() {
         </div>
       </section>
 
-      {/* Values — numbered list */}
+      {/* Values — card grid */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-16">What We Believe</h2>
-          <div className="space-y-12">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">What We Believe</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {values.map((value, i) => (
               <motion.div
                 key={value.num}
-                className="flex gap-6 md:gap-10"
+                className="rounded-2xl bg-white border border-neutral-200/60 p-8 md:p-10 card-lift group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
               >
-                <span className="font-serif text-4xl md:text-6xl font-bold text-neutral-200 leading-none shrink-0 w-16 md:w-24">
+                <span className="font-serif text-4xl md:text-5xl font-bold text-neutral-100 group-hover:text-[#B91C1C]/20 transition-colors duration-300 leading-none block mb-4">
                   {value.num}
                 </span>
-                <div className="pt-1 md:pt-3">
-                  <h3 className="font-serif text-xl md:text-2xl font-bold tracking-tight mb-2">{value.title}</h3>
-                  <p className="text-neutral-500 leading-relaxed max-w-lg">{value.desc}</p>
-                </div>
+                <h3 className="font-serif text-xl md:text-2xl font-bold tracking-tight mb-3">{value.title}</h3>
+                <p className="text-neutral-500 leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -132,13 +134,13 @@ export default function About() {
       <section className="px-6 lg:px-10 py-20 md:py-28 bg-neutral-900 text-[#FDFBF7]">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">What Makes Us Different</h2>
-          <div className="border-t border-white/10">
-            <div className="grid grid-cols-2 py-4 text-[0.6rem] font-mono uppercase tracking-[0.2em]">
+          <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.02]">
+            <div className="grid grid-cols-2 py-4 px-6 md:px-8 text-[0.6rem] font-mono uppercase tracking-[0.2em] border-b border-white/[0.06]">
               <span className="text-[#E53E3E]">Us</span>
               <span className="text-neutral-500">Everyone else</span>
             </div>
             {comparison.map((row) => (
-              <div key={row.us} className="grid grid-cols-2 border-t border-white/10 py-5">
+              <div key={row.us} className="grid grid-cols-2 border-b border-white/[0.06] last:border-b-0 py-5 px-6 md:px-8 hover:bg-white/[0.02] transition-colors">
                 <span className="text-neutral-100 font-medium">{row.us}</span>
                 <span className="text-neutral-500 text-sm">{row.them}</span>
               </div>
@@ -156,7 +158,7 @@ export default function About() {
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300 shrink-0"
+            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B] shrink-0"
           >
             Book a Call
           </Link>

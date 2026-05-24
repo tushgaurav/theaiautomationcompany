@@ -2,8 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="border-b border-neutral-900/10 relative">
-      {/* Red column rule */}
+    <section className="relative">
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#B91C1C] hidden md:block" />
 
       <div className="grid grid-cols-1 md:grid-cols-12">

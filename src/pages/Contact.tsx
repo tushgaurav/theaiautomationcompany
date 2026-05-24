@@ -24,9 +24,8 @@ export default function Contact() {
       </section>
 
       {/* Process stepper */}
-      <section className="px-6 lg:px-10 py-12 md:py-16 border-b border-neutral-900/10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
-          <div className="absolute top-5 left-[16.66%] right-[16.66%] h-px bg-neutral-200 hidden sm:block" />
+      <section className="px-6 lg:px-10 py-12 md:py-16 border-b border-neutral-900/10 section-alt">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5">
           {[
             { num: '01', label: 'Fill this out', desc: 'Takes 2 minutes' },
             { num: '02', label: 'We schedule a call', desc: 'Within 24 hours' },
@@ -34,12 +33,12 @@ export default function Contact() {
           ].map((step, i) => (
             <motion.div
               key={step.num}
-              className="text-center relative"
+              className="bg-white rounded-2xl p-6 md:p-8 text-center border border-neutral-200/60"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 + i * 0.15 }}
             >
-              <div className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-xs font-mono text-[#B91C1C] mx-auto mb-3 bg-[#FDFBF7] relative z-10">
+              <div className="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center text-xs font-mono text-[#E53E3E] mx-auto mb-3">
                 {step.num}
               </div>
               <p className="font-medium text-sm">{step.label}</p>
@@ -61,11 +60,15 @@ export default function Contact() {
           >
             {/* Pull quote */}
             <div className="mb-12">
-              <div className="border-l-2 border-[#B91C1C] pl-6">
-                <p className="font-serif text-xl md:text-2xl font-bold leading-snug tracking-tight">
-                  "They found 15 hours of work we could automate in the first call. Paid for itself in two weeks."
-                </p>
-                <p className="text-sm text-neutral-500 mt-4">Sarah K. &middot; Digital Agency Founder</p>
+              <div className="rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 p-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#B91C1C]/[0.08] rounded-full blur-[60px] pointer-events-none" />
+                <div className="relative z-10">
+                  <div className="w-8 h-[2px] bg-[#E53E3E] mb-5" />
+                  <p className="font-serif text-xl md:text-2xl font-bold leading-snug tracking-tight text-white">
+                    "They found 15 hours of work we could automate in the first call. Paid for itself in two weeks."
+                  </p>
+                  <p className="text-sm text-neutral-500 mt-4">Sarah K. &middot; Digital Agency Founder</p>
+                </div>
               </div>
             </div>
 
@@ -101,89 +104,90 @@ export default function Contact() {
             transition={{ delay: 0.1 }}
           >
             {submitted ? (
-              <div className="border border-neutral-900/10 p-12 md:p-16 text-center">
-                <p className="font-serif text-3xl md:text-4xl font-bold tracking-tight mb-3">Got it.</p>
-                <p className="text-neutral-500">We'll be in touch within 24 hours to set up a call.</p>
+              <div className="rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 p-12 md:p-16 text-center">
+                <p className="font-serif text-3xl md:text-4xl font-bold tracking-tight mb-3 text-white">Got it.</p>
+                <p className="text-neutral-400">We'll be in touch within 24 hours to set up a call.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Name + Email row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="input-group">
+              <div className="rounded-2xl bg-white border border-neutral-200/60 p-8 md:p-10">
+                <form onSubmit={handleSubmit} className="space-y-7">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        className="w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        className="w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
+                        placeholder="you@company.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
                     <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                      Name
+                      Company
                     </label>
                     <input
                       type="text"
-                      required
-                      className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
-                      placeholder="Your name"
+                      className="w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
+                      placeholder="Company name (optional)"
                     />
                   </div>
-                  <div className="input-group">
+
+                  <div>
                     <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                      Email
+                      What do you need help with?
                     </label>
-                    <input
-                      type="email"
+                    <textarea
+                      rows={3}
                       required
-                      className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
-                      placeholder="you@company.com"
+                      className="w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors resize-none"
+                      placeholder="What's taking too much time? What tools do you use?"
                     />
                   </div>
-                </div>
 
-                <div className="input-group">
-                  <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
-                    placeholder="Company name (optional)"
-                  />
-                </div>
+                  <div>
+                    <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
+                      Budget range
+                    </label>
+                    <select
+                      className="w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors text-neutral-600"
+                    >
+                      <option value="">Select a range (optional)</option>
+                      <option value="3500">Quick Start (~$3,500)</option>
+                      <option value="8500">Growth (~$8,500)</option>
+                      <option value="12000">AI Agent Deploy ($5k\u2013$12k)</option>
+                      <option value="workshop">Workshop ($2.5k\u2013$6k)</option>
+                      <option value="ongoing">Monthly Support ($1,200/mo)</option>
+                      <option value="unsure">Not sure yet</option>
+                    </select>
+                  </div>
 
-                <div className="input-group">
-                  <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                    What do you need help with?
-                  </label>
-                  <textarea
-                    rows={3}
-                    required
-                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors resize-none"
-                    placeholder="What's taking too much time? What tools do you use?"
-                  />
-                </div>
-
-                <div className="input-group">
-                  <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                    Budget range
-                  </label>
-                  <select
-                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors text-neutral-600"
+                  <button
+                    type="submit"
+                    className="w-full sm:w-auto px-12 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B]"
                   >
-                    <option value="">Select a range (optional)</option>
-                    <option value="3500">Quick Start (~$3,500)</option>
-                    <option value="8500">Growth (~$8,500)</option>
-                    <option value="12000">AI Agent Deploy ($5k\u2013$12k)</option>
-                    <option value="workshop">Workshop ($2.5k\u2013$6k)</option>
-                    <option value="ongoing">Monthly Support ($1,200/mo)</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
-                </div>
+                    Send Message
+                  </button>
 
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-12 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300"
-                >
-                  Send Message
-                </button>
-
-                <p className="text-[0.7rem] text-neutral-400">
-                  We'll get back within 24 hours. No spam, ever.
-                </p>
-              </form>
+                  <p className="text-[0.7rem] text-neutral-400">
+                    We'll get back within 24 hours. No spam, ever.
+                  </p>
+                </form>
+              </div>
             )}
           </motion.div>
         </div>

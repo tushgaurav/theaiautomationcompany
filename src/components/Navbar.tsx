@@ -13,7 +13,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="border-b border-neutral-900/10 px-6 lg:px-10 py-5 sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-sm">
+    <nav className="border-b border-neutral-900/10 px-6 lg:px-10 py-4 sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md">
       <div className="flex items-center justify-between">
         <Link to="/" className="text-xs uppercase tracking-[0.2em] font-mono font-medium text-neutral-900">
           The AI Automation Co.
@@ -34,7 +34,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             to="/contact"
-            className="text-xs uppercase tracking-[0.15em] font-mono font-medium border border-neutral-900 px-5 py-2.5 hover:bg-neutral-900 hover:text-[#FDFBF7] transition-colors hidden sm:inline-block"
+            className="text-xs uppercase tracking-[0.15em] font-mono font-medium bg-[#B91C1C] text-white px-6 py-2.5 rounded-md hover:bg-[#991B1B] btn-primary hidden sm:inline-block"
           >
             Book a Call
           </Link>
@@ -71,7 +71,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
-            className="text-xs uppercase tracking-[0.15em] font-mono font-medium border border-neutral-900 px-5 py-2.5 text-center mt-2 hover:bg-neutral-900 hover:text-[#FDFBF7] transition-colors"
+            className="text-xs uppercase tracking-[0.15em] font-mono font-medium bg-[#B91C1C] text-white px-5 py-2.5 rounded-md text-center mt-2 hover:bg-[#991B1B] transition-colors"
           >
             Book a Call
           </Link>
