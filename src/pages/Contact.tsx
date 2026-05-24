@@ -11,128 +11,157 @@ export default function Contact() {
 
   return (
     <>
-      {/* Header */}
-      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
-        <div className="max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">Contact</span>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-[-0.03em] mb-6">
+      {/* Large outline heading */}
+      <section className="px-6 lg:px-10 pt-20 pb-10 md:pt-28 md:pb-14 border-b border-neutral-900/10 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-6 block">Contact</span>
+            <h1 className="font-serif text-6xl md:text-[8rem] lg:text-[10rem] font-bold tracking-[-0.04em] leading-[0.85] text-transparent [-webkit-text-stroke:2px_#1a1a1a] md:[-webkit-text-stroke:3px_#1a1a1a]">
               Let's Talk
             </h1>
-            <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-              Not sure what you need? That's fine. Book a free call and we'll figure it out together.
-              No sales pitch, just a conversation about what's possible.
-            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Form section */}
+      {/* Process stepper */}
+      <section className="px-6 lg:px-10 py-12 md:py-16 border-b border-neutral-900/10">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
+          <div className="absolute top-5 left-[16.66%] right-[16.66%] h-px bg-neutral-200 hidden sm:block" />
+          {[
+            { num: '01', label: 'Fill this out', desc: 'Takes 2 minutes' },
+            { num: '02', label: 'We schedule a call', desc: 'Within 24 hours' },
+            { num: '03', label: 'We get to work', desc: 'If it\u2019s a fit' },
+          ].map((step, i) => (
+            <motion.div
+              key={step.num}
+              className="text-center relative"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + i * 0.15 }}
+            >
+              <div className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-xs font-mono text-[#B91C1C] mx-auto mb-3 bg-[#FDFBF7] relative z-10">
+                {step.num}
+              </div>
+              <p className="font-medium text-sm">{step.label}</p>
+              <p className="text-xs text-neutral-400 mt-0.5">{step.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Main content: testimonial + form */}
       <section className="px-6 lg:px-10 py-16 md:py-24">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Left: info */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
+          {/* Left: testimonial + info */}
           <motion.div
+            className="md:col-span-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-2xl font-bold mb-6">How this usually goes</h2>
-            <div className="space-y-5 text-neutral-600 text-[0.95rem] leading-relaxed">
-              <p>
-                You fill out the form (or just email us). We'll get back to you within 24 hours
-                to schedule a free 30-minute discovery call.
-              </p>
-              <p>
-                On the call, we'll ask about your business, your team, and where time is being wasted.
-                Then we'll tell you honestly whether automation makes sense and what it would look like.
-              </p>
-              <p>
-                No pressure. No followup emails for 6 months. If we're a fit, great. If not, we'll
-                point you in the right direction.
-              </p>
+            {/* Pull quote */}
+            <div className="mb-12">
+              <div className="border-l-2 border-[#B91C1C] pl-6">
+                <p className="font-serif text-xl md:text-2xl font-bold leading-snug tracking-tight">
+                  "They found 15 hours of work we could automate in the first call. Paid for itself in two weeks."
+                </p>
+                <p className="text-sm text-neutral-500 mt-4">Sarah K. &middot; Digital Agency Founder</p>
+              </div>
             </div>
 
-            <div className="mt-10 space-y-4">
+            <div className="space-y-6">
               <div>
-                <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">Email</span>
-                <a href="mailto:hello@aiautomation.co" className="text-neutral-900 hover:text-[#B91C1C] transition-colors">
-                  hello@aiautomation.co
-                </a>
+                <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">What happens next</span>
+                <p className="text-sm text-neutral-600 leading-relaxed">
+                  We'll get back within 24 hours to schedule a free 30-minute discovery call. On the call, we'll ask about your business and figure out if automation makes sense. No pressure. No 6-month follow-up emails.
+                </p>
               </div>
-              <div>
-                <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">Response time</span>
-                <span className="text-neutral-900">Within 24 hours</span>
+
+              <div className="pt-4 border-t border-neutral-200 space-y-3">
+                <div>
+                  <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-0.5">Email directly</span>
+                  <a href="mailto:hello@aiautomation.co" className="text-neutral-900 hover:text-[#B91C1C] transition-colors text-sm">
+                    hello@aiautomation.co
+                  </a>
+                </div>
+                <div>
+                  <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-0.5">Response time</span>
+                  <span className="text-neutral-900 text-sm">Within 24 hours</span>
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* Right: form */}
           <motion.div
+            className="md:col-span-7"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
             {submitted ? (
-              <div className="border border-neutral-900/10 p-10 text-center">
-                <h3 className="font-serif text-2xl font-bold mb-3">Got it.</h3>
+              <div className="border border-neutral-900/10 p-12 md:p-16 text-center">
+                <p className="font-serif text-3xl md:text-4xl font-bold tracking-tight mb-3">Got it.</p>
                 <p className="text-neutral-500">We'll be in touch within 24 hours to set up a call.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full border border-neutral-900/15 bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-neutral-900/40 transition-colors"
-                    placeholder="Your name"
-                  />
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Name + Email row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="input-group">
+                    <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div className="input-group">
+                    <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
+                      placeholder="you@company.com"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    className="w-full border border-neutral-900/15 bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-neutral-900/40 transition-colors"
-                    placeholder="you@company.com"
-                  />
-                </div>
-
-                <div>
+                <div className="input-group">
                   <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
                     Company
                   </label>
                   <input
                     type="text"
-                    className="w-full border border-neutral-900/15 bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-neutral-900/40 transition-colors"
+                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors"
                     placeholder="Company name (optional)"
                   />
                 </div>
 
-                <div>
+                <div className="input-group">
                   <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
                     What do you need help with?
                   </label>
                   <textarea
-                    rows={4}
+                    rows={3}
                     required
-                    className="w-full border border-neutral-900/15 bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-neutral-900/40 transition-colors resize-none"
-                    placeholder="Tell us about your situation. What's taking too much time? What tools do you use?"
+                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors resize-none"
+                    placeholder="What's taking too much time? What tools do you use?"
                   />
                 </div>
 
-                <div>
+                <div className="input-group">
                   <label className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">
                     Budget range
                   </label>
                   <select
-                    className="w-full border border-neutral-900/15 bg-transparent px-4 py-3 text-sm focus:outline-none focus:border-neutral-900/40 transition-colors text-neutral-600"
+                    className="input-field w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-base focus:outline-none focus:border-neutral-900 transition-colors text-neutral-600"
                   >
                     <option value="">Select a range (optional)</option>
                     <option value="3500">Quick Start (~$3,500)</option>
@@ -146,13 +175,13 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300"
+                  className="w-full sm:w-auto px-12 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300"
                 >
                   Send Message
                 </button>
 
-                <p className="text-[0.7rem] text-neutral-400 text-center">
-                  We'll get back to you within 24 hours. No spam, ever.
+                <p className="text-[0.7rem] text-neutral-400">
+                  We'll get back within 24 hours. No spam, ever.
                 </p>
               </form>
             )}

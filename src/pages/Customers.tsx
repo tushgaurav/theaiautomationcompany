@@ -5,124 +5,203 @@ const caseStudies = [
   {
     industry: 'Marketing Agency',
     size: '8 people',
-    problem: 'Spending 6+ hours every week manually copying data between HubSpot, ClickUp, and QuickBooks. Someone had to update all three every time anything changed.',
-    solution: 'n8n workflow that syncs all three tools automatically. When a deal closes in HubSpot, a project gets created in ClickUp and an invoice gets generated in QuickBooks. Weekly report auto-sent to the owner.',
-    result: '6 hours per week back (now billable client work). Zero missed invoices. Owner knows what\u2019s happening without asking.',
-    tools: 'n8n, HubSpot, ClickUp, QuickBooks',
+    metric: '6h/week',
+    metricLabel: 'saved',
+    problem: 'Spending 6+ hours every week manually copying data between HubSpot, ClickUp, and QuickBooks.',
+    solution: 'n8n workflow syncing all three tools. Deal closes in HubSpot \u2192 project in ClickUp \u2192 invoice in QuickBooks. Weekly report auto-sent.',
+    result: '6 hours per week back. Zero missed invoices. Owner knows what\u2019s happening without asking.',
+    tools: ['n8n', 'HubSpot', 'ClickUp', 'QuickBooks'],
   },
   {
     industry: 'Law Firm',
     size: '12 people',
-    problem: 'Paralegals drafting the same emails and documents over and over. Client intakes, status updates, document requests \u2014 same patterns, different details. 15\u201320 minutes each time.',
-    solution: 'AI agent that drafts documents based on case info. Pulls data from their case management system, generates first drafts in the firm\u2019s writing style. Paralegal reviews and sends in 3 minutes.',
-    result: '40% faster document turnaround. Happier clients. Paralegals doing actual legal work instead of copy-paste.',
-    tools: 'Custom AI agent, Claude API, case management system',
+    metric: '40%',
+    metricLabel: 'faster turnaround',
+    problem: 'Paralegals drafting the same emails and documents over and over. 15\u201320 minutes each time.',
+    solution: 'AI agent that drafts documents from case info in the firm\u2019s writing style. Paralegal reviews and sends in 3 minutes.',
+    result: '40% faster document turnaround. Paralegals doing actual legal work instead of copy-paste.',
+    tools: ['Custom AI Agent', 'Claude API', 'Case Management'],
   },
   {
     industry: 'E-commerce Store',
     size: 'Health supplements',
-    problem: 'Answering 50\u201370 customer emails per day. Mostly the same questions: shipping, ingredients, returns, order status. Owner spending 3 hours daily on email.',
-    solution: 'AI support agent handling common questions. Connected to order system and knowledge base. Auto-responds to simple stuff, escalates complex issues. Daily summary for the owner.',
-    result: 'Owner answers 10\u201315 emails instead of 50\u201370. Response time from 4 hours to 10 minutes. Customer satisfaction went up.',
-    tools: 'AI agent, Shopify API, Gmail, custom knowledge base',
+    metric: '85%',
+    metricLabel: 'fewer manual emails',
+    problem: '50\u201370 customer emails per day. Mostly identical questions. Owner spending 3 hours daily on email.',
+    solution: 'AI support agent connected to orders and knowledge base. Auto-responds to common questions, escalates complex ones.',
+    result: 'Owner answers 10\u201315 emails instead of 50\u201370. Response time from 4 hours to 10 minutes.',
+    tools: ['AI Agent', 'Shopify API', 'Gmail', 'Knowledge Base'],
   },
   {
     industry: 'Recruiting Agency',
     size: '5 people',
-    problem: 'Manually researching candidates before outreach. LinkedIn, company websites, GitHub, Twitter \u2014 30\u201345 minutes per prospect, 20\u201330 times per week.',
-    solution: 'Research agent that takes a name and company, finds profiles, recent activity, and tech stack, then outputs a ready-to-use brief in 2 minutes.',
-    result: 'Research time from 30 min to 2 min. 3x more candidates reached per week. Better personalization.',
-    tools: 'AI agent, web scraping tools, n8n, Airtable',
+    metric: '30m \u2192 2m',
+    metricLabel: 'per prospect',
+    problem: 'Manually researching candidates. LinkedIn, GitHub, Twitter \u2014 30\u201345 minutes per prospect, 20\u201330 times a week.',
+    solution: 'Research agent that finds profiles, activity, and tech stack, then outputs a brief in 2 minutes.',
+    result: '3x more candidates reached per week. Better personalization with more info, less time.',
+    tools: ['AI Agent', 'Web Scraping', 'n8n', 'Airtable'],
   },
   {
     industry: 'Consulting Firm',
     size: '15 people',
-    problem: 'No one knew what automation was possible. Lots of "we should automate that" but no one had time to learn the tools. Wanted the team to be self-sufficient.',
-    solution: 'Full-day Business Automation Basics workshop. Taught Zapier and ChatGPT for common tasks. Built 5 automations together during the session. 30-day follow-up support.',
-    result: 'Team built 12 more automations on their own in 2 months. Saved ~25 hours per week across the company. Now self-sufficient.',
-    tools: 'Workshop: Business Automation + AI for Real Work',
+    metric: '25h/week',
+    metricLabel: 'saved across team',
+    problem: 'No one knew what automation was possible. "We should automate that" but no time to learn.',
+    solution: 'Full-day workshop. Taught Zapier and ChatGPT. Built 5 automations together. 30-day follow-up.',
+    result: 'Team built 12 more automations on their own in 2 months. Now self-sufficient.',
+    tools: ['Workshop', 'Zapier', 'ChatGPT'],
   },
   {
     industry: 'Real Estate Team',
     size: '6 agents',
-    problem: 'Lead follow-up was a mess. Leads from Zillow, website, referrals \u2014 all going to different places. Agents forgetting to follow up. No visibility.',
-    solution: 'All leads funneled into one CRM. Auto-assignment based on source and availability. Follow-up sequences for each lead type. Slack notifications for hot leads.',
-    result: 'Response time from 6 hours to 15 minutes. Lead-to-appointment rate doubled. Broker sees everything in one dashboard.',
-    tools: 'n8n, Follow Up Boss, Slack, Zillow API',
+    metric: '2x',
+    metricLabel: 'lead-to-appointment rate',
+    problem: 'Lead follow-up was a mess. Leads from Zillow, website, referrals \u2014 all different places. No visibility.',
+    solution: 'All leads into one CRM. Auto-assignment, follow-up sequences, Slack alerts for hot leads.',
+    result: 'Response time from 6 hours to 15 minutes. Lead-to-appointment rate doubled.',
+    tools: ['n8n', 'Follow Up Boss', 'Slack', 'Zillow API'],
   },
   {
     industry: 'SaaS Startup',
     size: '10 people',
-    problem: 'Customer onboarding was all manual. After signup: 5 emails, accounts in 3 tools, schedule a call, add to Slack. 30 minutes per new customer.',
-    solution: 'Automated onboarding workflow. Signup triggers welcome email, account creation, calendar invite, Slack addition, support rep assignment, and reminder sequence. All in 2 minutes.',
-    result: '30 minutes saved per customer (15+ new/week = 7.5 hours saved). Instant onboarding. Support team focuses on actual support.',
-    tools: 'n8n, Stripe, Intercom, Google Calendar, Slack',
+    metric: '7.5h/week',
+    metricLabel: 'saved on onboarding',
+    problem: 'Manual customer onboarding: 5 emails, 3 tool accounts, a call, Slack invite. 30 minutes each.',
+    solution: 'Automated workflow: signup triggers everything. Welcome email, accounts, calendar, Slack, reminders. 2 minutes.',
+    result: '30 minutes saved per customer. 15+ new customers/week. Support team focuses on real support.',
+    tools: ['n8n', 'Stripe', 'Intercom', 'Calendar', 'Slack'],
   },
   {
     industry: 'Accounting Firm',
     size: '20 people',
-    problem: 'Invoice processing was manual hell. Invoices via email, Slack, portal uploads. Someone had to download, rename, categorize, and upload to the right client folder. 10+ hours per week.',
-    solution: 'AI agent that processes incoming invoices. Reads with OCR + AI, extracts vendor/amount/date/category, renames properly, uploads to correct folder, flags anything wrong.',
-    result: '10 hours per week back. Fewer missed or misfiled invoices. Clients get books updated faster.',
-    tools: 'AI agent (GPT-4 Vision), n8n, SharePoint, email',
+    metric: '10h/week',
+    metricLabel: 'saved on invoices',
+    problem: 'Invoice processing via email, Slack, portal uploads. Download, rename, categorize, upload. 10+ hours weekly.',
+    solution: 'AI agent reads invoices (OCR + AI), extracts data, renames, uploads to correct folder, flags issues.',
+    result: '10 hours per week back. Fewer misfiled invoices. Clients get books updated faster.',
+    tools: ['GPT-4 Vision', 'n8n', 'SharePoint', 'Email'],
   },
 ]
 
 export default function Customers() {
+  const featured = caseStudies[0]
+  const rest = caseStudies.slice(1)
+
   return (
     <>
-      {/* Header */}
-      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
-        <div className="max-w-4xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+      {/* Header with aggregate stats */}
+      <section className="border-b border-neutral-900/10">
+        <div className="px-6 lg:px-10 pt-20 pb-10 md:pt-28 md:pb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto">
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">Case Studies</span>
-            <h1 className="font-serif text-4xl md:text-6xl font-bold tracking-[-0.03em] mb-6">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95]">
               What We've Actually Built
             </h1>
-            <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-              Real work for real businesses. Names changed for NDAs, but the results are real.
-            </p>
           </motion.div>
+        </div>
+        <div className="px-6 lg:px-10 pb-12 md:pb-16">
+          <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8">
+            {[
+              { value: '8', label: 'companies' },
+              { value: '75+', label: 'hours saved weekly' },
+              { value: '$0', label: 'missed invoices' },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.1 }}
+              >
+                <p className="font-serif text-3xl md:text-5xl font-bold tracking-tight">{stat.value}</p>
+                <p className="text-xs text-neutral-500 mt-1">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Case studies */}
+      {/* Featured case study */}
+      <section className="border-b border-neutral-900/10">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="md:col-span-4 p-8 md:p-14 bg-neutral-900 text-[#FDFBF7] flex flex-col justify-center">
+            <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#E53E3E] block mb-3">{featured.industry} &middot; {featured.size}</span>
+            <p className="font-serif text-5xl md:text-7xl font-bold tracking-tight">{featured.metric}</p>
+            <p className="text-sm text-neutral-400 mt-2">{featured.metricLabel}</p>
+          </div>
+          <div className="md:col-span-8 p-8 md:p-14">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div>
+                <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">Problem</span>
+                <p className="text-sm text-neutral-600 leading-relaxed">{featured.problem}</p>
+              </div>
+              <div>
+                <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">Solution</span>
+                <p className="text-sm text-neutral-600 leading-relaxed">{featured.solution}</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {featured.tools.map((tool) => (
+                <span key={tool} className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-neutral-500 border border-neutral-200 px-2.5 py-1">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Remaining case studies — alternating layouts */}
       <section className="px-6 lg:px-10 py-16 md:py-24">
-        <div className="max-w-5xl mx-auto space-y-12">
-          {caseStudies.map((study) => (
+        <div className="max-w-6xl mx-auto space-y-0">
+          {rest.map((study, i) => (
             <motion.article
               key={study.industry}
-              className="border border-neutral-900/10 p-8 md:p-12 hover:border-neutral-900/20 transition-colors"
+              className="border-b border-neutral-900/10 py-12 md:py-16 last:border-b-0"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
             >
-              <div className="flex flex-wrap items-center gap-3 mb-6">
-                <h3 className="font-serif text-xl md:text-2xl font-bold tracking-tight">{study.industry}</h3>
-                <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 border border-neutral-200 px-2 py-0.5">
-                  {study.size}
-                </span>
-              </div>
+              <div className={`grid grid-cols-1 md:grid-cols-12 gap-8 ${i % 2 !== 0 ? 'md:direction-rtl' : ''}`}>
+                {/* Metric side */}
+                <div className={`md:col-span-3 ${i % 2 !== 0 ? 'md:order-2 md:text-right' : ''}`}>
+                  <p className="font-serif text-4xl md:text-5xl font-bold tracking-tight text-[#B91C1C]">{study.metric}</p>
+                  <p className="text-xs text-neutral-500 mt-1">{study.metricLabel}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-4">
+                    {study.tools.map((tool) => (
+                      <span key={tool} className="text-[0.55rem] font-mono uppercase tracking-[0.1em] text-neutral-400 bg-neutral-100 px-2 py-0.5">
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">The Problem</span>
-                  <p className="text-sm text-neutral-600 leading-relaxed">{study.problem}</p>
+                {/* Content side */}
+                <div className={`md:col-span-9 ${i % 2 !== 0 ? 'md:order-1' : ''}`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <h3 className="font-serif text-xl font-bold tracking-tight">{study.industry}</h3>
+                    <span className="text-[0.55rem] font-mono uppercase tracking-[0.15em] text-neutral-400">{study.size}</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                      <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1.5">Problem</span>
+                      <p className="text-sm text-neutral-600 leading-relaxed">{study.problem}</p>
+                    </div>
+                    <div>
+                      <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1.5">Solution</span>
+                      <p className="text-sm text-neutral-600 leading-relaxed">{study.solution}</p>
+                    </div>
+                    <div>
+                      <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#B91C1C] block mb-1.5">Result</span>
+                      <p className="text-sm text-neutral-900 leading-relaxed font-medium">{study.result}</p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2">What We Built</span>
-                  <p className="text-sm text-neutral-600 leading-relaxed">{study.solution}</p>
-                </div>
-                <div>
-                  <span className="text-[0.6rem] font-mono uppercase tracking-[0.2em] text-[#B91C1C] block mb-2">The Result</span>
-                  <p className="text-sm text-neutral-900 leading-relaxed font-medium">{study.result}</p>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-neutral-100">
-                <span className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-neutral-400">Tools: </span>
-                <span className="text-xs text-neutral-500">{study.tools}</span>
               </div>
             </motion.article>
           ))}
@@ -130,13 +209,15 @@ export default function Customers() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight mb-6">Want to be on this page?</h2>
-          <p className="text-neutral-500 text-lg mb-8">Let's build something together.</p>
+      <section className="px-6 lg:px-10 py-16 md:py-24 bg-neutral-900 text-[#FDFBF7]">
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+          <div>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Want to be on this page?</h2>
+            <p className="text-neutral-400 mt-3 max-w-md">Let's build something worth talking about.</p>
+          </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300"
+            className="inline-block px-10 py-4 bg-[#E53E3E] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#C53030] transition-colors duration-300 shrink-0"
           >
             Let's Build Something
           </Link>
