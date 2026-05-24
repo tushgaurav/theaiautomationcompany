@@ -1,28 +1,28 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LazyMotion, domAnimation } from 'framer-motion'
-import Navbar from './components/Navbar'
-import Masthead from './components/Masthead'
-import Hero from './components/Hero'
-import Marquee from './components/Marquee'
-import Services from './components/Services'
-import Quote from './components/Quote'
-import CTA from './components/CTA'
-import CapabilitiesGrid from './components/CapabilitiesGrid'
-import Footer from './components/Footer'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Services from './pages/Services'
+import Workshops from './pages/Workshops'
+import Customers from './pages/Customers'
+import About from './pages/About'
+import Contact from './pages/Contact'
 
 export default function App() {
   return (
     <LazyMotion features={domAnimation}>
-      <div className="bg-[#FDFBF7] text-neutral-900 min-h-screen overflow-x-hidden selection:bg-[#B91C1C] selection:text-white antialiased">
-        <Navbar />
-        <Masthead />
-        <Hero />
-        <Marquee />
-        <Services />
-        <Quote />
-        <CapabilitiesGrid />
-        <CTA />
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/workshops" element={<Workshops />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </LazyMotion>
   )
 }
