@@ -25,7 +25,7 @@ export default function CTA() {
             </p>
             <a
               href="#"
-              className="inline-block px-10 py-4 bg-neutral-900 text-[#FDFBF7] font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#B91C1C] transition-colors duration-300"
+              className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300"
             >
               Book a Free Call
             </a>

@@ -2,7 +2,10 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
-    <section className="border-b border-neutral-900/10">
+    <section className="border-b border-neutral-900/10 relative">
+      {/* Red column rule */}
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#B91C1C] hidden md:block" />
+
       <div className="grid grid-cols-1 md:grid-cols-12">
         <div className="md:col-span-8 p-8 md:p-14 lg:p-20 border-b md:border-b-0 md:border-r border-neutral-900/10">
           <motion.div
@@ -48,7 +51,7 @@ export default function Hero() {
               <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400">
                 {stat.label}
               </span>
-              <p className="text-4xl md:text-5xl font-bold font-serif mt-2 tracking-[-0.02em]">
+              <p className="text-5xl md:text-6xl lg:text-7xl font-bold font-serif mt-2 tracking-[-0.03em]">
                 {stat.value}
               </p>
               <p className="text-sm text-neutral-500 mt-1">{stat.desc}</p>
