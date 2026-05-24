@@ -91,17 +91,15 @@ export default function Customers() {
   return (
     <>
       {/* Header with aggregate stats */}
-      <section className="border-b border-neutral-900/10">
-        <div className="px-6 lg:px-10 pt-20 pb-10 md:pt-28 md:pb-12">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto">
+      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
+        <div className="max-w-6xl mx-auto">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">Case Studies</span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95]">
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] mb-12">
               What We've Actually Built
             </h1>
           </motion.div>
-        </div>
-        <div className="px-6 lg:px-10 pb-12 md:pb-16">
-          <div className="max-w-5xl mx-auto grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 gap-8">
             {[
               { value: '8', label: 'companies' },
               { value: '75+', label: 'hours saved weekly' },
@@ -122,9 +120,9 @@ export default function Customers() {
       </section>
 
       {/* Featured case study */}
-      <section className="border-b border-neutral-900/10">
+      <section className="px-6 lg:px-10 py-20 md:py-28 border-b border-neutral-900/10">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-12"
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 overflow-hidden border border-neutral-900/10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -209,15 +207,15 @@ export default function Customers() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 py-16 md:py-24 bg-neutral-900 text-[#FDFBF7]">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Want to be on this page?</h2>
-            <p className="text-neutral-400 mt-3 max-w-md">Let's build something worth talking about.</p>
+            <p className="text-neutral-500 mt-3 max-w-md">Let's build something worth talking about.</p>
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#E53E3E] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#C53030] transition-colors duration-300 shrink-0"
+            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs hover:bg-[#991B1B] hover:shadow-[0_8px_30px_rgba(185,28,28,0.3)] transition-all duration-300 shrink-0"
           >
             Let's Build Something
           </Link>

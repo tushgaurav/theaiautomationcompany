@@ -25,7 +25,7 @@ export default function Contact() {
 
       {/* Process stepper */}
       <section className="px-6 lg:px-10 py-12 md:py-16 border-b border-neutral-900/10">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
           <div className="absolute top-5 left-[16.66%] right-[16.66%] h-px bg-neutral-200 hidden sm:block" />
           {[
             { num: '01', label: 'Fill this out', desc: 'Takes 2 minutes' },
@@ -50,8 +50,8 @@ export default function Contact() {
       </section>
 
       {/* Main content: testimonial + form */}
-      <section className="px-6 lg:px-10 py-16 md:py-24">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
+      <section className="px-6 lg:px-10 py-20 md:py-28">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16">
           {/* Left: testimonial + info */}
           <motion.div
             className="md:col-span-5"

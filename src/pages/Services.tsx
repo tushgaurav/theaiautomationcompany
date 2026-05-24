@@ -38,9 +38,9 @@ export default function Services() {
   return (
     <>
       {/* Editorial split hero */}
-      <section className="border-b border-neutral-900/10">
-        <div className="grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-8 px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 md:border-r border-neutral-900/10">
+      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="md:col-span-8">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">Services</span>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95]">
@@ -48,7 +48,7 @@ export default function Services() {
               </h1>
             </motion.div>
           </div>
-          <div className="md:col-span-4 px-6 lg:px-10 py-10 md:py-20 flex flex-col justify-end gap-6">
+          <div className="md:col-span-4 flex flex-col justify-end gap-6">
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
               <p className="text-5xl md:text-6xl font-serif font-bold tracking-tight">9</p>
               <p className="text-sm text-neutral-500 mt-1">service categories</p>
@@ -62,32 +62,34 @@ export default function Services() {
       </section>
 
       {/* Featured services — full-width stacked rows */}
-      <section className="border-b border-neutral-900/10">
-        {featured.map((service, i) => (
-          <motion.div
-            key={service.num}
-            className={`grid grid-cols-1 md:grid-cols-12 px-6 lg:px-10 py-12 md:py-16 ${i < featured.length - 1 ? 'border-b border-neutral-900/10' : ''}`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="md:col-span-1 mb-4 md:mb-0">
-              <span className="text-[0.65rem] font-mono text-neutral-300 tracking-[0.15em]">{service.num}</span>
-            </div>
-            <div className="md:col-span-4 mb-4 md:mb-0">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight">{service.title}</h2>
-            </div>
-            <div className="md:col-span-7">
-              <p className="text-neutral-500 leading-relaxed max-w-xl">{service.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+      <section className="px-6 lg:px-10 border-b border-neutral-900/10">
+        <div className="max-w-6xl mx-auto">
+          {featured.map((service, i) => (
+            <motion.div
+              key={service.num}
+              className={`grid grid-cols-1 md:grid-cols-12 py-12 md:py-16 ${i < featured.length - 1 ? 'border-b border-neutral-900/10' : ''}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="md:col-span-1 mb-4 md:mb-0">
+                <span className="text-[0.65rem] font-mono text-neutral-300 tracking-[0.15em]">{service.num}</span>
+              </div>
+              <div className="md:col-span-4 mb-4 md:mb-0">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight">{service.title}</h2>
+              </div>
+              <div className="md:col-span-7">
+                <p className="text-neutral-500 leading-relaxed max-w-xl">{service.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </section>
 
       {/* Remaining services — compact 3-col grid */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-10">Also</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
             {remaining.map((service) => (
@@ -106,7 +108,7 @@ export default function Services() {
 
       {/* n8n — terminal style */}
       <section className="bg-[#111] text-[#FDFBF7] px-6 lg:px-10 py-20 md:py-28 font-mono">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-2 mb-10">
             <span className="w-3 h-3 rounded-full bg-red-500/70" />
             <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
@@ -134,7 +136,7 @@ export default function Services() {
 
       {/* Before / After — AI Agent */}
       <section className="px-6 lg:px-10 py-20 md:py-28 border-b border-neutral-900/10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <span className="text-[0.65rem] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-8">AI Agent Example</span>
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">Prospect research, before and after</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -167,8 +169,8 @@ export default function Services() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Not sure what you need?</h2>
             <p className="text-neutral-500 mt-3 max-w-md">Book a free call. We'll map your workflows and tell you what's worth automating.</p>

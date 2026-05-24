@@ -21,7 +21,7 @@ export default function About() {
     <>
       {/* Manifesto header */}
       <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">About</span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] mb-8">
@@ -34,7 +34,7 @@ export default function About() {
 
       {/* Story — two-column editorial */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <motion.div
             className="md:col-span-7"
             initial={{ opacity: 0, y: 20 }}
@@ -78,8 +78,8 @@ export default function About() {
       </section>
 
       {/* By the numbers */}
-      <section className="border-t border-b border-neutral-900/10">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-900/10">
+      <section className="px-6 lg:px-10 border-t border-b border-neutral-900/10">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-900/10">
           {[
             { value: '50+', label: 'Automations built' },
             { value: '8', label: 'Industries served' },
@@ -103,7 +103,7 @@ export default function About() {
 
       {/* Values — numbered list */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-16">What We Believe</h2>
           <div className="space-y-12">
             {values.map((value, i) => (
@@ -130,7 +130,7 @@ export default function About() {
 
       {/* Us vs Them comparison */}
       <section className="px-6 lg:px-10 py-20 md:py-28 bg-neutral-900 text-[#FDFBF7]">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">What Makes Us Different</h2>
           <div className="border-t border-white/10">
             <div className="grid grid-cols-2 py-4 text-[0.6rem] font-mono uppercase tracking-[0.2em]">
@@ -148,8 +148,8 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Want to work with us?</h2>
             <p className="text-neutral-500 mt-3 max-w-md">Book a call. We'll figure out if we're a fit, and go from there.</p>

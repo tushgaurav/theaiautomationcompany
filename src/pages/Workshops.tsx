@@ -112,7 +112,7 @@ export default function Workshops() {
         <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] font-serif font-bold text-[20vw] leading-none text-neutral-100 select-none pointer-events-none hidden lg:block" aria-hidden="true">
           Program
         </div>
-        <div className="max-w-5xl mx-auto relative z-10">
+        <div className="max-w-6xl mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">Workshops</span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] mb-6">
@@ -245,7 +245,7 @@ export default function Workshops() {
 
       {/* FAQ */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">Frequently Asked</h2>
           <FAQ />
         </div>
@@ -253,7 +253,7 @@ export default function Workshops() {
 
       {/* CTA */}
       <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
-        <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Interested?</h2>
             <p className="text-neutral-500 mt-3 max-w-md">Free 30-minute planning call. We'll figure out the right workshop for your team.</p>
