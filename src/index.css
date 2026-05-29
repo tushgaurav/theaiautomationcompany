@@ -1,9 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Space Grotesk", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --font-serif: "Geist", system-ui, sans-serif;
+
+  --color-canvas: #0e0d0b;
+  --color-surface: #15130e;
+  --color-surface-2: #1b180f;
+  --color-accent: #f4501e;
+  --color-accent-dim: #c43d14;
+  --color-bone: #f0ebe0;
 }
 
 html {
@@ -12,18 +19,21 @@ html {
 
 body {
   font-family: var(--font-sans);
+  background-color: #0e0d0b;
+  color: #f0ebe0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
 }
 
+/* Warm film grain over the canvas */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.028;
+  opacity: 0.022;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
@@ -39,41 +49,55 @@ body::before {
 }
 
 .marquee-track {
-  animation: marquee-scroll 30s linear infinite;
+  animation: marquee-scroll 28s linear infinite;
 }
 
 .marquee-track:hover {
   animation-play-state: paused;
 }
 
+/* Alternating section: a hair lighter, warm */
 .section-alt {
-  background-color: #F3F1ED;
+  background-color: #121009;
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
+/* Hero: flat warm canvas with an exposed structural grid */
 .hero-gradient {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 40%, #111 70%, #0d0d0d 100%);
-  background-size: 200% 200%;
-  animation: gradient-shift 12s ease infinite;
+  background-color: #100e0a;
+  background-image:
+    linear-gradient(rgba(240, 235, 225, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 235, 225, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
 
+/* Flat bordered panel — the core brutalist surface */
+.panel {
+  background-color: #15130e;
+  border: 1px solid rgba(240, 235, 225, 0.14);
+}
+
+/* Hard, honest hover: accent border + small lift, no glow/shadow */
 .card-lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.18s linear,
+    border-color 0.18s linear,
+    background-color 0.18s linear;
 }
 
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04);
+  transform: translate(-3px, -3px);
+  border-color: #f4501e;
+  box-shadow: 4px 4px 0 0 #f4501e;
 }
 
 .btn-primary {
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.15s linear,
+    background-color 0.15s linear,
+    color 0.15s linear;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 8px 30px rgba(185, 28, 28, 0.35);
+  transform: translate(-2px, -2px);
+  box-shadow: 3px 3px 0 0 rgba(240, 235, 225, 0.9);
 }

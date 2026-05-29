@@ -20,14 +20,14 @@ export default function About() {
   return (
     <>
       {/* Manifesto header */}
-      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-neutral-900/10">
+      <section className="px-6 lg:px-10 pt-20 pb-16 md:pt-28 md:pb-20 border-b border-[#f0ebe0]/15">
         <div className="max-w-6xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#B91C1C] mb-4 block">About</span>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.95] mb-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <span className="text-xs uppercase tracking-[0.2em] font-mono text-[#f4501e] mb-4 block">// about</span>
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-[-0.03em] leading-[0.98] mb-8 text-[#f0ebe0]">
               We started because nobody was serving the 5-to-50 person business
             </h1>
-            <p className="text-lg text-neutral-500 max-w-xl">The ones too small for enterprise firms. Too big for a freelancer who disappears.</p>
+            <p className="text-lg text-[#a39b8e] max-w-xl">The ones too small for enterprise firms. Too big for a freelancer who disappears.</p>
           </motion.div>
         </div>
       </section>
@@ -41,19 +41,19 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-neutral-900">
+            <p className="text-lg md:text-xl text-[#cfc7b9] leading-relaxed first-letter:text-5xl first-letter:font-mono first-letter:font-medium first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:text-[#f4501e]">
               AI is everywhere right now. Every SaaS company says they're "AI-powered." Every consultant
               has a new framework. Every LinkedIn post promises to 10x your productivity.
             </p>
-            <p className="text-lg text-neutral-600 leading-relaxed mt-6">
+            <p className="text-lg text-[#a39b8e] leading-relaxed mt-6">
               But most small businesses? They're still copying data between spreadsheets. Still sending
               the same emails manually. Still spending hours on tasks a machine could handle in seconds.
             </p>
-            <p className="text-lg text-neutral-600 leading-relaxed mt-6">
+            <p className="text-lg text-[#a39b8e] leading-relaxed mt-6">
               The big automation firms charge six figures and take a year. The freelancers disappear after
               the first project. Nobody was building for the businesses in the middle.
             </p>
-            <p className="text-lg text-neutral-900 font-medium leading-relaxed mt-6">
+            <p className="text-lg text-[#f0ebe0] font-medium leading-relaxed mt-6">
               So we did. We come in, find the boring repetitive work, automate it with AI and modern
               tools, make sure it works, show your team how to use it, and get out of the way.
             </p>
@@ -67,23 +67,20 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <div className="rounded-2xl bg-gradient-to-br from-neutral-800 to-neutral-900 p-8 md:p-10 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-[200px] h-[200px] bg-[#B91C1C]/[0.08] rounded-full blur-[80px] pointer-events-none" />
-              <div className="relative z-10">
-                <div className="w-8 h-[2px] bg-[#E53E3E] mb-6" />
-                <p className="font-serif text-2xl md:text-3xl font-bold leading-snug tracking-tight text-white">
-                  "Our best outcome is when you don't need us anymore."
-                </p>
-                <p className="text-sm text-neutral-500 mt-4">Our actual philosophy</p>
-              </div>
+            <div className="border border-[#f0ebe0]/15 p-8 md:p-10 w-full">
+              <div className="w-8 h-px bg-[#f4501e] mb-6" />
+              <p className="text-2xl md:text-3xl font-bold leading-snug tracking-tight text-[#f0ebe0]">
+                "Our best outcome is when you don't need us anymore."
+              </p>
+              <p className="text-sm text-[#a39b8e] mt-4 font-mono uppercase tracking-[0.1em]">Our actual philosophy</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* By the numbers */}
-      <section className="px-6 lg:px-10 py-16 md:py-24 section-alt">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-5">
+      <section className="px-6 lg:px-10 py-16 md:py-24 section-alt border-y border-[#f0ebe0]/15">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 border-t border-l border-[#f0ebe0]/15">
           {[
             { value: '50+', label: 'Automations built' },
             { value: '8', label: 'Industries served' },
@@ -92,14 +89,14 @@ export default function About() {
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="bg-white rounded-2xl p-8 md:p-10 text-center border border-neutral-200/60"
+              className="p-8 md:p-10 border-b border-r border-[#f0ebe0]/15"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              transition={{ delay: i * 0.06 }}
             >
-              <p className="font-serif text-3xl md:text-5xl font-bold tracking-tight">{stat.value}</p>
-              <p className="text-xs text-neutral-500 mt-2">{stat.label}</p>
+              <p className="font-mono text-3xl md:text-5xl font-medium tracking-tight text-[#f0ebe0]">{stat.value}</p>
+              <p className="text-xs text-[#a39b8e] mt-2 font-mono uppercase tracking-[0.1em]">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -108,22 +105,22 @@ export default function About() {
       {/* Values — card grid */}
       <section className="px-6 lg:px-10 py-20 md:py-28">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">What We Believe</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-12 text-[#f0ebe0]">What We Believe</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 border-t border-l border-[#f0ebe0]/15">
             {values.map((value, i) => (
               <motion.div
                 key={value.num}
-                className="rounded-2xl bg-white border border-neutral-200/60 p-8 md:p-10 card-lift group"
+                className="p-8 md:p-10 border-b border-r border-[#f0ebe0]/15 group hover:bg-[#15130e] transition-colors"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                transition={{ delay: i * 0.06 }}
               >
-                <span className="font-serif text-4xl md:text-5xl font-bold text-neutral-100 group-hover:text-[#B91C1C]/20 transition-colors duration-300 leading-none block mb-4">
+                <span className="font-mono text-4xl md:text-5xl font-medium text-[#2a261d] group-hover:text-[#f4501e] transition-colors duration-200 leading-none block mb-4">
                   {value.num}
                 </span>
-                <h3 className="font-serif text-xl md:text-2xl font-bold tracking-tight mb-3">{value.title}</h3>
-                <p className="text-neutral-500 leading-relaxed">{value.desc}</p>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-3 text-[#f0ebe0]">{value.title}</h3>
+                <p className="text-[#a39b8e] leading-relaxed">{value.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -131,18 +128,18 @@ export default function About() {
       </section>
 
       {/* Us vs Them comparison */}
-      <section className="px-6 lg:px-10 py-20 md:py-28 bg-neutral-900 text-[#FDFBF7]">
+      <section className="px-6 lg:px-10 py-20 md:py-28 section-alt border-t border-[#f0ebe0]/15">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold tracking-tight mb-12">What Makes Us Different</h2>
-          <div className="rounded-2xl border border-white/[0.06] overflow-hidden bg-white/[0.02]">
-            <div className="grid grid-cols-2 py-4 px-6 md:px-8 text-[0.6rem] font-mono uppercase tracking-[0.2em] border-b border-white/[0.06]">
-              <span className="text-[#E53E3E]">Us</span>
-              <span className="text-neutral-500">Everyone else</span>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-12 text-[#f0ebe0]">What Makes Us Different</h2>
+          <div className="border border-[#f0ebe0]/15">
+            <div className="grid grid-cols-2 py-4 px-6 md:px-8 text-[0.6rem] font-mono uppercase tracking-[0.2em] border-b border-[#f0ebe0]/15">
+              <span className="text-[#f4501e]">Us</span>
+              <span className="text-[#a39b8e]">Everyone else</span>
             </div>
             {comparison.map((row) => (
-              <div key={row.us} className="grid grid-cols-2 border-b border-white/[0.06] last:border-b-0 py-5 px-6 md:px-8 hover:bg-white/[0.02] transition-colors">
-                <span className="text-neutral-100 font-medium">{row.us}</span>
-                <span className="text-neutral-500 text-sm">{row.them}</span>
+              <div key={row.us} className="grid grid-cols-2 border-b border-[#f0ebe0]/15 last:border-b-0 py-5 px-6 md:px-8 hover:bg-[#15130e] transition-colors">
+                <span className="text-[#f0ebe0] font-medium">{row.us}</span>
+                <span className="text-[#a39b8e] text-sm">{row.them}</span>
               </div>
             ))}
           </div>
@@ -150,15 +147,15 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-neutral-900/10">
+      <section className="px-6 lg:px-10 py-16 md:py-24 border-t border-[#f0ebe0]/15">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold tracking-tight">Want to work with us?</h2>
-            <p className="text-neutral-500 mt-3 max-w-md">Book a call. We'll figure out if we're a fit, and go from there.</p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-[#f0ebe0]">Want to work with us?</h2>
+            <p className="text-[#a39b8e] mt-3 max-w-md">Book a call. We'll figure out if we're a fit, and go from there.</p>
           </div>
           <Link
             to="/contact"
-            className="inline-block px-10 py-4 bg-[#B91C1C] text-white font-mono uppercase tracking-[0.15em] text-xs rounded-lg btn-primary hover:bg-[#991B1B] shrink-0"
+            className="inline-block px-10 py-4 bg-[#f4501e] text-[#0e0d0b] font-mono uppercase tracking-[0.15em] text-xs font-medium btn-primary shrink-0"
           >
             Book a Call
           </Link>

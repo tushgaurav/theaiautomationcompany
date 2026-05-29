@@ -13,18 +13,20 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <nav className="border-b border-neutral-900/10 px-6 lg:px-10 py-4 sticky top-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-[#f0ebe0]/15 bg-[#0e0d0b] px-6 lg:px-10 py-4">
       <div className="flex items-center justify-between">
-        <Link to="/" className="text-xs uppercase tracking-[0.2em] font-mono font-medium text-neutral-900">
-          The AI Automation Co.
+        <Link to="/" className="flex items-center">
+          <img src="/logo.svg" alt="The AI Automation Company" className="w-28" />
         </Link>
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`text-xs uppercase tracking-[0.15em] font-mono transition-colors ${
-                location.pathname === link.to ? 'text-neutral-900' : 'text-neutral-500 hover:text-neutral-900'
+              className={`text-xs font-mono uppercase tracking-[0.18em] transition-colors ${
+                location.pathname === link.to
+                  ? 'text-[#f4501e]'
+                  : 'text-[#a39b8e] hover:text-[#f0ebe0]'
               }`}
             >
               {link.label}
@@ -34,12 +36,12 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             to="/contact"
-            className="text-xs uppercase tracking-[0.15em] font-mono font-medium bg-[#B91C1C] text-white px-6 py-2.5 rounded-md hover:bg-[#991B1B] btn-primary hidden sm:inline-block"
+            className="hidden sm:inline-block text-xs font-mono uppercase tracking-[0.18em] font-medium bg-[#f4501e] text-[#0e0d0b] px-5 py-2.5 btn-primary"
           >
             Book a Call
           </Link>
           <button
-            className="md:hidden text-neutral-900 p-1"
+            className="md:hidden text-[#f0ebe0] p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -55,14 +57,14 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden mt-4 pt-4 border-t border-neutral-900/10 flex flex-col gap-3">
+        <div className="md:hidden mt-4 pt-4 border-t border-[#f0ebe0]/15 flex flex-col gap-3">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
               onClick={() => setMobileOpen(false)}
-              className={`text-xs uppercase tracking-[0.15em] font-mono py-2 ${
-                location.pathname === link.to ? 'text-neutral-900' : 'text-neutral-500'
+              className={`text-xs font-mono uppercase tracking-[0.18em] py-2 ${
+                location.pathname === link.to ? 'text-[#f4501e]' : 'text-[#a39b8e]'
               }`}
             >
               {link.label}
@@ -71,7 +73,7 @@ export default function Navbar() {
           <Link
             to="/contact"
             onClick={() => setMobileOpen(false)}
-            className="text-xs uppercase tracking-[0.15em] font-mono font-medium bg-[#B91C1C] text-white px-5 py-2.5 rounded-md text-center mt-2 hover:bg-[#991B1B] transition-colors"
+            className="text-xs font-mono uppercase tracking-[0.18em] font-medium bg-[#f4501e] text-[#0e0d0b] px-5 py-2.5 text-center mt-2"
           >
             Book a Call
           </Link>

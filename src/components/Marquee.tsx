@@ -9,13 +9,13 @@ export default function Marquee() {
 
   return (
     <div
-      className="bg-neutral-900 text-[#FDFBF7] py-4 overflow-hidden border-b border-neutral-900/10"
+      className="border-y border-[#f0ebe0]/15 bg-[#121009] py-3.5 overflow-hidden"
       aria-hidden="true"
     >
-      <div className="marquee-track flex gap-12 whitespace-nowrap will-change-transform">
+      <div className="marquee-track flex gap-10 whitespace-nowrap will-change-transform">
         {[...items, ...items, ...items].map((item, i) => (
-          <span key={i} className="text-sm font-mono uppercase tracking-[0.15em] flex items-center gap-12">
-            <span className="text-[#B91C1C]">—</span>
+          <span key={i} className="text-xs font-mono uppercase tracking-[0.2em] text-[#a39b8e] flex items-center gap-10">
+            <span className="text-[#f4501e]">✶</span>
             <span>{item}</span>
           </span>
         ))}
